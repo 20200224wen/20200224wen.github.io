@@ -1,0 +1,40 @@
+.wrap {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px auto;
+    position: relative;
+}
+.wrap .imgs{
+    width: 300%;
+    height: 300px;
+    cursor: pointer;
+    transition: .5s;
+}
+.wrap .imgs img{
+    width: 500px;
+    height: 300px;
+    float: left;
+}
+
+.wrap .dot{
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.0));
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.wrap .dot span{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
+.wrap .dot span.selected{
+    background-color: green;
+
+}

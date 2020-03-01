@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrap .top-bar {
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, .3);
+    z-index: 1;
+}
+
+.wrap .imgs {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wrap .imgs a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-image: url(../imgs/0.jpg);
+    background-color: rgb(129, 161, 200); */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.wrap .sidebar{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 320px;
+    background-color: rgba(15, 15, 30, .4);
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+}
+.wrap .sidebar a{
+    display: block;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .7);
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+}
+.wrap .sidebar .guess{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.wrap .sidebar .recommend {
+    color: rgba(255, 255, 255, .7);
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.wrap .sidebar .guess::before,
+.wrap .sidebar .recommend::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.wrap .sidebar .guess::before{
+    background-image: url('../imgs/all.png');
+}
+.wrap .sidebar .recommend::before{
+    background-image: url('../imgs/tj.png');
+}
+.wrap .sidebar .guess:hover {
+    color: #ff5c38;
+}
+.wrap .sidebar .nav{
+    transition: font-size .2s;
+}
+.wrap .sidebar .nav> span{
+    display: none;
+}
+.wrap .sidebar .active{
+    font-size: 22px;
+    color: #ff5c38;
+}
+.wrap .sidebar .active >span{
+    display: inline;
+    font-size: 15px;
+    color: #ff5c38;
+}
