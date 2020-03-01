@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3D旋转轮播图</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="wrap" id="wrap">
+      <img src="./imgs/太华.jpg" alt="" />
+      <img src="./imgs/岱宗.jpg" alt="" />
+      <img src="./imgs/幽恒.jpg" alt="" />
+      <img src="./imgs/玄嵩.jpg" alt="" />
+      <img src="./imgs/飞衡.jpg" alt="" />
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <!-- 封装插件 -->
+    <script src="./js/index.js"></script>
+    <!-- 调用插件 -->
+    <script>
+      $("#wrap").slider({
+        curDisplay: 0,
+        autoPlay: true,
+        interval: 2000
+      });
+    </script>
+  </body>
+</html>
