@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>无缝轮播图</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        margin: 100px auto;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .wrap .imgs {
+        position: absolute;
+        left: 0;
+        /* width: 3000px; */
+        height: 300px;
+        transition: left 0.5s;
+      }
+      .wrap .imgs a {
+        float: left;
+        width: 500px;
+        height: 300px;
+      }
+      .wrap .imgs img {
+        display: block;
+        width: 500px;
+        height: 300px;
+      }
+      .wrap .dots {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        /* background-color: rgba(0, 0, 0, 0.2); */
+        background-image: linear-gradient(
+          to Top,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.1)
+        );
+        width: 500px;
+        height: 30px;
+        list-style: none;
+        text-align: center;
+        line-height: 30px;
+      }
+      .wrap .dots li {
+        width: 15px;
+        height: 15px;
+        margin: 0 2px;
+        display: inline-block;
+        background-color: #999;
+        border-radius: 50%;
+      }
+      .wrap .dots li.active {
+        background-color: #fff;
+      }
+      .wrap .btn {
+        display: none;
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 20px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ccc;
+        text-align: center;
+        line-height: 30px;
+      }
+      .wrap .btn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+      }
+      .wrap:hover .btn {
+        display: block;
+      }
+      .wrap .btn.left {
+        left: 0;
+        border-radius: 0 15px 15px 0;
+      }
+      .wrap .btn.right {
+        right: 0;
+        border-radius: 15px 0 0 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="imgs" style="left: 0px;">
+        <a href="#"><img src="../imgs/01.jpg" alt=""/></a>
+        <a href="#"><img src="../imgs/02.jpg" alt=""/></a>
+        <a href="#"><img src="../imgs/03.jpg" alt=""/></a>
+        <a href="#"><img src="../imgs/04.jpg" alt=""/></a>
+        <a href="#"><img src="../imgs/05.jpg" alt=""/></a>
+        <a href="#"><img src="../imgs/01.jpg" alt=""/></a>
+      </div>
+      <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="btn left">&lt;</div>
+      <div class="btn right">&gt;</div>
+    </div>
+    <script src="./slide4.js"></script>
+  </body>
+</html>
