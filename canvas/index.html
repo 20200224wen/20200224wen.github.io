@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rain</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overflow: hidden;
+      }
+      #cavs {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="cavs"></canvas>
+    <script>
+      var cavs = document.getElementById("cavs"),
+        ctx = cavs.getContext("2d");
+      cavs.width = window.innerWidth;
+      cavs.height = window.innerHeight;
+      var w = cavs.width,
+        h = cavs.height;
+      // onresize 事件会在窗口或框架被调整大小时发生
+      window.onresize = function() {
+        var w = cavs.width,
+          h = cavs.height;
+      };
+      var count = 30;
+      var rainArr = [];
+      // 构造雨滴的函数
+      function Rain() {}
+      // 给雨滴的原型链上添加方法
+      Rain.prototype = {
+        // 初始化
+        init: function() {
+          this.x = random(1, w); //随机的出生点
+          this.y = 0; //x,y坐标
+          this.r = 1; //半径
+          this.ySpeed = random(4, 7); //随机的下落速度
+          this.rSpeed = 1; //半径增加的速度
+          this.t = 1; //透明度
+          this.ts = 0.96; //透明度系数
+          this.l = random(0.8 * h, 0.9 * h); //随机的下落点高度
+          this.maxR = 30; //半径增加停止条件
+        },
+        // 画圆和画矩形的条件
+        draw: function() {
+          // 如果当前高度大于指定高度，开始画圆，反之，继续下落(画矩形)
+          if (this.y > this.l) {
+            // 画圆
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+            ctx.strokeStyle = color(this.t);
+            ctx.closePath();
+            ctx.stroke();
+          } else {
+            // 画矩形
+            ctx.fillStyle = color(this.t);
+            ctx.fillRect(this.x, this.y, 2, 10);
+          }
+          this.updata(); //更新坐标
+        },
+        //更新
+        updata: function() {
+          if (this.y > this.l) {
+            if (this.t > 0.03) {
+              this.r += this.rSpeed;
+              if (this.r > this.maxR) {
+                this.t *= this.ts;
+              }
+            } else {
+              this.init();
+            }
+          } else {
+            this.y += this.ySpeed;
+          }
+        }
+      };
+      //产生某个区间的随机数
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      // 随机颜色
+      function color(t) {
+        var r = Math.floor(Math.random() * 255);
+        var g = Math.floor(Math.random() * 255);
+        var b = Math.floor(Math.random() * 255);
+        return "rgba(" + r + "," + g + "," + b + "," + t + ")";
+      }
+      // 开始下落
+      function move() {
+        ctx.fillStyle = "rgba(0,0,0,.1)";
+        ctx.fillRect(0, 0, w, h);
+        for (var i = 0; i < rainArr.length; i++) {
+          rainArr[i].draw();
+        }
+        window.requestAnimationFrame(move);
+      }
+      move();
+      // 有时间间隔的创造雨滴对象
+      function createRain() {
+        for (var i = 0; i < count; i++) {
+          (function(j) {
+            setTimeout(function() {
+              var rain = new Rain();
+              rain.init();
+              rainArr.push(rain);
+            }, j * 3000);
+          })(i);
+        }
+      }
+      createRain();
+    </script>
+  </body>
+</html>
