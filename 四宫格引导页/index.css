@@ -61,6 +61,7 @@
   background-size: 110% auto;
 }
 i.close {
+  font-style: normal;
   position: fixed;
   display: none;
   top: 20px;
