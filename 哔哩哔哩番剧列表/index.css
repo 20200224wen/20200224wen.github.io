@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.time {
+  margin: 50px auto;
+  width: 710px;
+  height: 414px;
+}
+.time .title-line {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 16px;
+}
+.title-line .anime {
+  float: left;
+  width: 102px;
+  height: 100%;
+  font-size: 0;
+}
+.title-line .anime .icon {
+  width: 36px;
+  height: 36px;
+  vertical-align: top;
+  margin-right: 6px;
+}
+.title-line .anime .fanju {
+  display: inline-block;
+  width: 40px;
+  height: 100%;
+  line-height: 36px;
+  font-size: 20px;
+  color: #212121;
+  margin-right: 20px;
+}
+.title-line .week-line {
+  float: left;
+  list-style: none;
+  line-height: 36px;
+  width: 416px;
+  height: 36px;
+  font-size: 0;
+  margin-left: 6px;
+}
+.title-line .week-line .item {
+  display: inline-block;
+  width: 28px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 24px;
+  color: #505050;
+  font-size: 12px;
+  cursor: pointer;
+}
+.title-line .week-line li.on {
+  height: 29px;
+  color: #00a1d6;
+  border-bottom: 1px solid #00a1d6;
+}
+.title-line .latest-line {
+  float: right;
+  width: 112px;
+  height: 28px;
+  margin-top: 3px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  color: #00a1d6;
+  border: 1px solid #00a1d6;
+}
+
+.time .content-line {
+  width: 710px;
+  height: 332px;
+  overflow-y: auto;
+}
+.content-line .card {
+  width: 210px;
+  height: 70px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.content-line .card .pic {
+  width: 70px;
+  height: 70px;
+}
+.content-line .card .pic img {
+  width: 70px;
+  height: 70px;
+  vertical-align: top;
+}
+.content-line .card .desc {
+  width: 128px;
+  height: 70px;
+}
+.content-line .card .desc .title {
+  width: 128px;
+  height: 37px;
+  line-height: 18px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #212121;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.content-line .card .desc .title:hover {
+  color: #00a1d6;
+}
+.content-line .card .desc .update {
+  display: block;
+  width: 128px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #00a1d6;
+}
